@@ -108,7 +108,7 @@ const sports = [
     medal: "🏅",
     medalLabel: "PARTICIPANT",
     medalColor: "#b49c78",
-    name: "Sonal Keshav Sonune & Vanshata Anandayya Kathale",
+    name: "Vanshata Anandayya Kathale",
     detail: "Division Level Fencing — Participant",
     year: "2026",
     img: null,

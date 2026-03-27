@@ -970,7 +970,7 @@ export default function App() {
                 </>
             )}
             {active === "About" && <About />}
-            {active === "Facilities" && <Facilities />}
+            {active === "Facilities" && <Facilities setActive={setActive} />}
             {active === "Appointment" && <AppointmentPage />}
             {active === "Contact" && <Contact />}
             {active === "Achievements" && <AchievementsPage />}
