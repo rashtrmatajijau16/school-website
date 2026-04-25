@@ -5,6 +5,7 @@ import arnaviImg from "./assets/arnavi.jpeg";
 import sonalImg from "./assets/sonal.jpeg";
 import laxmiImg from "./assets/laxmi.jpeg";
 import kiran1Img from "./assets/kiran2.jpeg";
+import classtopperImg from "./assets/classtopper.jpeg";
 import kiran2Img from "./assets/kiranjpg.jpeg";
 import saina1Img from "./assets/saina 2.jpeg";
 import saina2Img from "./assets/saina.jpeg";
@@ -307,7 +308,7 @@ export function AchievementsPage() {
                           <div
                               key={i}
                               style={{
-                                  height: 260,
+                                  height: "auto"  ,
                                   borderRadius: 16,
                                   overflow: "hidden",
                                   border: "3px solid #b49c78",
@@ -323,7 +324,7 @@ export function AchievementsPage() {
                                   style={{
                                       width: "100%",
                                       height: "100%",
-                                      objectFit: "cover"
+                                      display: "block"
                                   }}
                               />
                           </div>
@@ -405,7 +406,42 @@ export function AchievementsPage() {
 
           <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
 
-            {/* Gems of RJES */}
+                      {/* Gems of RJES */}
+
+                      {/* Class Toppers & ITO Exam 2025-26 */}
+                      <div style={{
+                          background: "#fff", border: "1px solid #e0d5c5",
+                          borderTop: "4px solid #6f42c1",
+                          borderRadius: 16, padding: "2rem",
+                          boxShadow: "0 4px 20px rgba(0,0,0,0.06)"
+                      }}>
+                          <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: "1.5rem" }}>
+                              <span style={{ fontSize: 28 }}>🥇</span>
+                              <div>
+                                  <div style={{ fontFamily: "Georgia,serif", fontWeight: 800, color: "#6f42c1", fontSize: 18 }}>
+                                      Class Toppers & Medalists
+                                  </div>
+                                  <div style={{ color: "#6C757D", fontFamily: "Georgia,serif", fontSize: 12, letterSpacing: 1 }}>
+                                      ITO EXAM 2025–26
+                                  </div>
+                              </div>
+                              <div style={{
+                                  marginLeft: "auto",
+                                  background: "#e8d5ff",
+                                  border: "1px solid #6f42c1",
+                                  borderRadius: 20, padding: "4px 16px",
+                                  color: "#6f42c1", fontFamily: "Georgia,serif",
+                                  fontSize: 12, fontWeight: 700
+                              }}>
+                                  🏅 2025–26
+                              </div>
+                          </div>
+                          <img
+                              src={classtopperImg}
+                              alt="Class Toppers and Medalists ITO Exam 2025-26"
+                              style={{ width: "100%", height: "auto", borderRadius: 12, border: "2px solid #e0d5c5", display: "block" }}
+                          />
+                      </div>
             <div style={{
               background: "#fff", border: "1px solid #e0d5c5",
               borderTop: "4px solid #b49c78",

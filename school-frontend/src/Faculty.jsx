@@ -35,7 +35,7 @@ const departments = [
         bg: "#e8f4fd",
         teachers: [
             { sr: 2, name: "Shaila Shankarrao Dhote", designation: "Asst. Teacher", qualification: "M.Sc, B.Sc, B.Ed, D.Ed", img: shailaImg },
-            { sr: 13, name: "Komal Arunrao Gawande", designation: "Ass. Teacher", qualification: "M.Sc (Chem), B.Ed", img: null },
+            //{ sr: 13, name: "Komal Arunrao Gawande", designation: "Ass. Teacher", qualification: "M.Sc (Chem), B.Ed", img: null },
             { sr: 18, name: "Shubhangi Devidas Joshi", designation: "Ass. Teacher", qualification: "M.Sc", img: shubhangiImg },
         ],
     },
@@ -46,9 +46,9 @@ const departments = [
         bg: "#fff3e0",
         teachers: [
             { sr: 4, name: "Suvarna Ramrao Deshmukh", designation: "Asst. Teacher", qualification: "B.Sc, B.Ed, D.Ed", img: suvarnaImg },
-            { sr: 14, name: "Kalyani Dhananjay Deshmukh", designation: "Ass. Teacher", qualification: "M.Sc (Math), B.Ed", img: null },
+            //{ sr: 14, name: "Kalyani Dhananjay Deshmukh", designation: "Ass. Teacher", qualification: "M.Sc (Math), B.Ed", img: null },
             { sr: 22, name: "Komal Kailas Deshmukh", designation: "Ass. Teacher", qualification: "M.Sc Math, D.El.Ed", img: null },
-            { sr: 23, name: "Bhagyashree Dhondge", designation: "Ass. Teacher", qualification: "M.Sc Math, B.Ed, D.Ted", img: null },
+        //    { sr: 23, name: "Bhagyashree Dhondge", designation: "Ass. Teacher", qualification: "M.Sc Math, B.Ed, D.Ted", img: null },
         ],
     },
     {
@@ -58,9 +58,9 @@ const departments = [
         bg: "#fdf3e7",
         teachers: [
             { sr: 3, name: "Kalpana Kisanrao Deshmukh", designation: "Asst. Teacher", qualification: "MA, B.Ed, D.Ed", img: kalpanaImg },
-            { sr: 6, name: "Reeta Narayanrao Deshmukh", designation: "Asst. Teacher", qualification: "MA, D.Ed", img: null },
+            //{ sr: 6, name: "Reeta Narayanrao Deshmukh", designation: "Asst. Teacher", qualification: "MA, D.Ed", img: null },
             { sr: 7, name: "Manisha Sudhakar Deshmukh", designation: "Ass. Teacher", qualification: "MA, B.Ed, D.Ed", img: manishaImg },
-            { sr: 15, name: "Neha Bhalchndra Phadnis", designation: "Asst. Teacher", qualification: "MA (Mar), D.Ed", img: null },
+        //    { sr: 15, name: "Neha Bhalchndra Phadnis", designation: "Asst. Teacher", qualification: "MA (Mar), D.Ed", img: null },
         ],
     },
     {
@@ -109,7 +109,7 @@ const departments = [
         bg: "#ede7f6",
         teachers: [
             { sr: 12, name: "Nivedita Ratnakar Zalte", designation: "Ass. Teacher", qualification: "M.Sc", img: niveditaImg },
-            { sr: 21, name: "Dhananshri Wankhede", designation: "Ass. Teacher", qualification: "B.E", img: null },
+        //    { sr: 21, name: "Dhananshri Wankhede", designation: "Ass. Teacher", qualification: "B.E", img: null },
         ],
     },
     {

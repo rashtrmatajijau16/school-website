@@ -35,44 +35,106 @@ async function post(url, data) {
 function Navbar({ active, setActive }) {
     const [open, setOpen] = useState(false);
     const links = ["Home", "About", "Facilities", "Achievements", "Appointment", "Status", "Contact", "Admin"];
+    const icons = { Home: "🏠", About: "ℹ️", Facilities: "🏫", Achievements: "🏆", Appointment: "📋", Status: "🔍", Contact: "📞", Admin: "🔐" };
+
+    const go = (l) => { setActive(l); setOpen(false); window.scrollTo({ top: 0, behavior: "smooth" }); };
+
     return (
-        <nav style={{
-            position: "fixed", top: 0, width: "100%", zIndex: 999,
-            background: "#FFF", backdropFilter: "blur(12px)",
-            borderBottom: "1px solid #e0d5c5",
-            display: "flex", alignItems: "center", justifyContent: "space-between",
-            padding: "0 2rem", height: 64, boxSizing: "border-box"
-        }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                <img src={logo} alt="Rashtramata Jijau School Logo" style={{ width: 45, height: 45, objectFit: "contain" }} />
-                <div>
-                    <div style={{ color: "#b49c78", fontWeight: 800, fontSize: 12, fontFamily: "Georgia,serif", letterSpacing: 1 }}>
-                        RASHTRAMATA JIJAU
+        <>
+            <nav style={{
+                position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000,
+                background: "#fff", borderBottom: "1px solid #e0d5c5",
+                display: "flex", alignItems: "center", justifyContent: "space-between",
+                padding: "0 1.5rem", height: 64, boxSizing: "border-box"
+            }}>
+                {/* Logo */}
+                <div onClick={() => go("Home")} style={{ display: "flex", alignItems: "center", gap: 10, cursor: "pointer", flexShrink: 0 }}>
+                    <img src={logo} alt="Logo" style={{ width: 42, height: 42, objectFit: "contain" }} />
+                    <div>
+                        <div style={{ color: "#b49c78", fontWeight: 800, fontSize: 12, fontFamily: "Georgia,serif", letterSpacing: 1 }}>RASHTRAMATA JIJAU</div>
+                        <div style={{ color: "#6C757D", fontSize: 9, letterSpacing: 2, fontFamily: "Georgia,serif" }}>ENGLISH SCHOOL & JR. COLLEGE</div>
                     </div>
-                    <div style={{ color: "#6C757D", fontSize: 9, letterSpacing: 2, fontFamily: "Georgia,serif" }}>
-                        ENGLISH SCHOOL & JR. COLLEGE
-                    </div>
+                </div>
+
+                {/* Desktop links - hidden on mobile */}
+                <div className="rj-desktop-nav" style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+                    {links.map(l => (
+                        <button key={l} onClick={() => go(l)} style={{
+                            background: "none", border: "none", cursor: "pointer",
+                            color: active === l ? "#b49c78" : "#495057",
+                            fontFamily: "Georgia,serif", fontSize: 12, letterSpacing: 0.5,
+                            borderBottom: active === l ? "2px solid #b49c78" : "2px solid transparent",
+                            paddingBottom: 2, transition: "all .2s", whiteSpace: "nowrap"
+                        }}>{l}</button>
+                    ))}
+                    <a href="tel:+919373918838" style={{
+                        background: "#b49c78", color: "#fff", borderRadius: 4,
+                        padding: "6px 12px", fontFamily: "Georgia,serif", fontSize: 11,
+                        textDecoration: "none", whiteSpace: "nowrap", flexShrink: 0
+                    }}>📞 93739 18838</a>
+                </div>
+
+                {/* Hamburger button - shown only on mobile */}
+                <button className="rj-hamburger" onClick={() => setOpen(o => !o)} style={{
+                    background: "none", border: "none", cursor: "pointer",
+                    padding: 8, display: "none", flexDirection: "column", gap: 5, flexShrink: 0
+                }}>
+                    <span style={{ display: "block", width: 24, height: 2.5, background: "#b49c78", borderRadius: 2, transition: "all .3s", transform: open ? "translateY(7.5px) rotate(45deg)" : "none" }} />
+                    <span style={{ display: "block", width: 24, height: 2.5, background: "#b49c78", borderRadius: 2, transition: "all .3s", opacity: open ? 0 : 1 }} />
+                    <span style={{ display: "block", width: 24, height: 2.5, background: "#b49c78", borderRadius: 2, transition: "all .3s", transform: open ? "translateY(-7.5px) rotate(-45deg)" : "none" }} />
+                </button>
+            </nav>
+
+            {/* Mobile dropdown menu */}
+            <div style={{
+                position: "fixed", top: 64, left: 0, right: 0, zIndex: 999,
+                background: "#fff", borderBottom: open ? "1px solid #e0d5c5" : "none",
+                boxShadow: open ? "0 8px 24px rgba(0,0,0,0.1)" : "none",
+                maxHeight: open ? "600px" : "0px",
+                overflow: "hidden",
+                transition: "max-height 0.35s ease, box-shadow 0.3s",
+            }}>
+                <div style={{ padding: "0.5rem 1.5rem 1.25rem" }}>
+                    {links.map((l, i) => (
+                        <button key={l} onClick={() => go(l)} style={{
+                            display: "flex", alignItems: "center", gap: 12,
+                            width: "100%", background: active === l ? "rgba(180,156,120,0.08)" : "none",
+                            border: "none", cursor: "pointer",
+                            color: active === l ? "#b49c78" : "#495057",
+                            fontFamily: "Georgia,serif", fontSize: 15,
+                            padding: "13px 10px", borderRadius: 8,
+                            borderBottom: i < links.length - 1 ? "1px solid #f5f0eb" : "none",
+                            textAlign: "left"
+                        }}>
+                            <span style={{ fontSize: 18, width: 28, textAlign: "center" }}>{icons[l]}</span>
+                            <span>{l}</span>
+                            {active === l && <span style={{ marginLeft: "auto", color: "#b49c78", fontSize: 10 }}>●</span>}
+                        </button>
+                    ))}
+                    <a href="tel:+919373918838" style={{
+                        display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
+                        marginTop: "0.75rem", background: "linear-gradient(135deg,#b49c78,#9c8664)",
+                        color: "#fff", borderRadius: 10, padding: "13px",
+                        textDecoration: "none", fontFamily: "Georgia,serif", fontSize: 14,
+                    }}>
+                        📞 Call: +91 93739 18838
+                    </a>
                 </div>
             </div>
 
-            <div style={{ display: "flex", gap: "1.5rem", alignItems: "center" }}>
-                {links.map(l => (
-                    <button key={l} onClick={() => { setActive(l); setOpen(false); }}
-                        style={{
-                            background: "none", border: "none", cursor: "pointer",
-                            color: active === l ? "#b49c78" : "#495057",
-                            fontFamily: "Georgia,serif", fontSize: 13, letterSpacing: 1,
-                            borderBottom: active === l ? "2px solid #b49c78" : "2px solid transparent",
-                            paddingBottom: 2, transition: "all .2s"
-                        }}>{l}</button>
-                ))}
-                <a href="tel:+919373918838" style={{
-                    background: "#b49c78", color: "#fff", borderRadius: 4,
-                    padding: "6px 14px", fontFamily: "Georgia,serif", fontSize: 12,
-                    textDecoration: "none", letterSpacing: .5, whiteSpace: "nowrap"
-                }}>📞 +91 93739 18838</a>
-            </div>
-        </nav>
+            {/* Tap outside overlay to close menu */}
+            {open && <div onClick={() => setOpen(false)} style={{ position: "fixed", inset: 0, zIndex: 998, background: "rgba(0,0,0,0.2)" }} />}
+
+            {/* CSS for responsive switching */}
+            <style>{`
+                .rj-desktop-nav { display: flex !important; }
+                .rj-hamburger { display: none !important; }
+                @media (max-width: 900px) {
+                    .rj-desktop-nav { display: none !important; }
+                    .rj-hamburger { display: flex !important; }
+                }
+            `}</style>
+        </>
     );
 }
 
@@ -928,8 +990,25 @@ function Footer({ setActive }) {
                         </div>
                     </div>
                 </div>
-                <div style={{ borderTop: "1px solid #e0d5c5", paddingTop: "1.5rem", textAlign: "center", color: "#6C757D", fontFamily: "Georgia,serif", fontSize: 12 }}>
+                <div style={{
+                    borderTop: "1px solid #e0d5c5",
+                    paddingTop: "1.5rem",
+                    textAlign: "center",
+                    color: "#6C757D",
+                    fontFamily: "Georgia,serif",
+                    fontSize: 12
+                }}>
                     © 2026 Rashtramata Jijau English School & Junior College, Chikhli. All rights reserved.
+
+                    <br />
+
+                    💻 Designed & Developed by
+                    <span style={{ color: "#b49c78", fontWeight: "bold" }}>
+                        Tanmay Bhandare
+                    </span> |
+                    📞 <a href="tel:+919552205068" style={{ color: "#6C757D", textDecoration: "none" }}>
+                        +91 9552205068
+                    </a>
                 </div>
             </div>
         </footer>
