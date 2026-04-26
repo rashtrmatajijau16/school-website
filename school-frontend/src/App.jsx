@@ -67,11 +67,11 @@ function Navbar({ active, setActive }) {
                             paddingBottom: 2, transition: "all .2s", whiteSpace: "nowrap"
                         }}>{l}</button>
                     ))}
-                    <a href="tel:+919373918838" style={{
+                    <a href="tel:+919767977510" style={{
                         background: "#b49c78", color: "#fff", borderRadius: 4,
                         padding: "6px 12px", fontFamily: "Georgia,serif", fontSize: 11,
                         textDecoration: "none", whiteSpace: "nowrap", flexShrink: 0
-                    }}>📞 93739 18838</a>
+                    }}>📞97679 77510</a>
                 </div>
 
                 {/* Hamburger button - shown only on mobile */}
@@ -111,13 +111,13 @@ function Navbar({ active, setActive }) {
                             {active === l && <span style={{ marginLeft: "auto", color: "#b49c78", fontSize: 10 }}>●</span>}
                         </button>
                     ))}
-                    <a href="tel:+919373918838" style={{
+                    <a href="tel:+919767977510" style={{
                         display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
                         marginTop: "0.75rem", background: "linear-gradient(135deg,#b49c78,#9c8664)",
                         color: "#fff", borderRadius: 10, padding: "13px",
                         textDecoration: "none", fontFamily: "Georgia,serif", fontSize: 14,
                     }}>
-                        📞 Call: +91 93739 18838
+                        📞 Call: +9197679 77510
                     </a>
                 </div>
             </div>
@@ -812,7 +812,7 @@ function AppointmentPage() {
             const data = await post(`${API}/appointment`, { ...form, childAge: form.childAge ? parseInt(form.childAge) : null });
             setStatus({ ok: true, msg: data.message });
             setForm({ parentName: "", childName: "", phone: "", email: "", childAge: "", classApplyingFor: "", preferredDate: "", preferredTime: "", additionalNotes: "" });
-        } catch { setStatus({ ok: false, msg: "Something went wrong. Please call us at +91 93739 18838." }); }
+        } catch { setStatus({ ok: false, msg: "Something went wrong. Please call us at +9197679 77510." }); }
         setLoading(false);
     };
 
@@ -862,7 +862,7 @@ function AppointmentPage() {
                     </button>
                 </form>
                 <div style={{ marginTop: "1.5rem", textAlign: "center", color: "#6C757D", fontFamily: "Georgia,serif", fontSize: 13 }}>
-                    Or call us at <a href="tel:+919373918838" style={{ color: "#b49c78" }}>+91 93739 18838</a>
+                    Or call us at <a href="tel:+919767977510" style={{ color: "#b49c78" }}>+9197679 77510</a>
                 </div>
             </div>
         </section>
@@ -897,7 +897,7 @@ function Contact() {
                     <div>
                         {[
                             { icon: "📍", title: "Address", val: "Chikhli, Buldhana, Maharashtra, India" },
-                            { icon: "📞", title: "Phone", val: "+91 93739 18838" },
+                            { icon: "📞", title: "Phone", val: "+9197679 77510" },
                             { icon: "📧", title: "Email", val: "rashtrmatajijau16@gmail.com" },
                             { icon: "🕐", title: "School Hours", val: "Mon–Sat: 7:30 AM – 2:00 PM" },
                         ].map((c, i) => (
@@ -961,8 +961,8 @@ function Footer({ setActive }) {
 
                         <p style={{ color: "#6C757D", fontFamily: "Georgia,serif", fontSize: 13, lineHeight: 2 }}>
 
-                            📞 <a href="tel:+919373918838" style={{ color: "#6C757D" }}>
-                                +91 93739 18838
+                            📞 <a href="tel:+9197679 77510" style={{ color: "#6C757D" }}>
+                                +9197679 77510
                             </a><br />
 
                             📧 <a href="mailto:rashtrmatajijau16@gmail.com" style={{ color: "#6C757D" }}>

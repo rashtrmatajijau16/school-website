@@ -22,7 +22,7 @@ export default function AppointmentStatus() {
       if (data && data.length > 0) setResults(data);
       else setError("No appointment found for this phone number.");
     } catch {
-      setError("Could not connect. Please try again or call +91 93739 18838.");
+        setError("Could not connect. Please try again or call +91 97679 77510.");
     }
     setLoading(false);
   };
@@ -97,7 +97,7 @@ export default function AppointmentStatus() {
             <div style={{ fontSize: "2rem", marginBottom: 8 }}>🔍</div>
             <p style={{ color: "#856404", fontFamily: "Georgia,serif" }}>{error}</p>
             <p style={{ color: "#856404", fontFamily: "Georgia,serif", fontSize: 13, marginTop: 8 }}>
-              Need help? Call us at <a href="tel:+919373918838" style={{ color: "#b49c78" }}>+91 93739 18838</a>
+                          Need help? Call us at <a href="tel:+919767977510" style={{ color: "#b49c78" }}>+91 97679 77510</a>
             </p>
           </div>
         )}
