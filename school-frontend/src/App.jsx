@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import logo from "./assets/logo.png";
 import heroBg from "./assets/BACKGROUND.jpeg";
 import chairmanImg from "./assets/chairman.jpeg";
-import principalImg from "./assets/Pincipal.png";
+import principalImg from "./assets/pincipal.png";
 import babyStudent from "./assets/babystudent.jpeg";
 import sirStudent from "./assets/sirstd.jpeg";
 import AdminDashboard from "./AdminDashboard";
