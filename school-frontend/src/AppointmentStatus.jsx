@@ -3,7 +3,7 @@
 
 import { useState } from "react";
 
-const API = "http://localhost:5000/api";
+const API = "https://school-api-vqge.onrender.com";
 
 export default function AppointmentStatus() {
   const [phone, setPhone] = useState("");
