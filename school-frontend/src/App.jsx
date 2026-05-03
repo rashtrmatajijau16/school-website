@@ -21,7 +21,7 @@ import chetanImg from "./assets/ChetanDeshmukh.jpeg";
 import sunilImg from "./assets/SunilDeshmukh.jpeg";
 import manishaRohanImg from "./assets/ManishaRohanDeshmukh.jpeg";
 import jyotiImg from "./assets/JyotiDeshmukh.jpeg";
-const API = "https://school-api-vqge.onrender.com";
+const API = "https://school-api-vqge.onrender.com/api";
 
 async function post(url, data) {
     const res = await fetch(url, {

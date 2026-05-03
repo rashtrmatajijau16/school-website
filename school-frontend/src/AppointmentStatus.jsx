@@ -3,7 +3,7 @@
 
 import { useState } from "react";
 
-const API = "https://school-api-vqge.onrender.com";
+const API = "https://school-api-vqge.onrender.com/api";
 
 export default function AppointmentStatus() {
   const [phone, setPhone] = useState("");
