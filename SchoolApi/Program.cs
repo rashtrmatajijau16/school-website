@@ -1,32 +1,44 @@
 using Microsoft.EntityFrameworkCore;
 using SchoolApi.Data;
 
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<SchoolDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+        policy.WithOrigins(
+            "http://localhost:5173",
+            "http://localhost:3000",
+            "https://rjes.org.in",
+            "https://www.rjes.org.in",
+            "https://school-website-eight-lime.vercel.app"
+        )
+        .AllowAnyMethod()
+        .AllowAnyHeader());
+});
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<SchoolDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("ReactApp", policy =>
-        policy.WithOrigins("http://localhost:5173", "http://localhost:3000")
-              .AllowAnyHeader()
-              .AllowAnyMethod());
-});
-
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
+using (var scope = app.Services.CreateScope())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    var db = scope.ServiceProvider.GetRequiredService<SchoolDbContext>();
+    db.Database.EnsureCreated();
 }
 
-app.UseCors("ReactApp");
+// ⚠️ CORS must be FIRST!
+app.UseCors("AllowFrontend");
+app.UseSwagger();
+app.UseSwaggerUI();
 app.UseAuthorization();
 app.MapControllers();
+
 app.Run();
