@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-const API = "http://localhost:5000/api";
+const API = "https://school-api-vqge.onrender.com";
 const ADMIN_PASSWORD = "school@2026";
 const ADMIN_EMAIL = "tanmaybhandare30@gmail.com"; // Only this email can request OTP
 
